@@ -1,7 +1,3 @@
-# fac10_jwt_workshop
-
-JSON web tokens are used to represent claims (eg.: user data) in a secure way.
-
 ## What is a JSON web token(JWT)?
 
 > A JSON web token (JWT) is a JSON object, which is a safe way to represent and transmit a set of inromation between two parties. The token is composed of a header, a payload and a signature.
@@ -32,6 +28,6 @@ The authentication flow:
 
 
 ## Resources
-- [medium article on understandinf JWTs](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec#.z80hda8ty)  
+- [medium article on understanding JWTs](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec#.z80hda8ty)  
 - [JWT signing algorithms overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/)  
 - [HWT the right way](https://stormpath.com/blog/jwt-the-right-way)  

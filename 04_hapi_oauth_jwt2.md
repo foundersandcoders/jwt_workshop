@@ -1,4 +1,4 @@
-## Create a JSON web token in three steps
+## Create a JSON web token in
 
 1. Create header (algorithm and token type) using encoding
 
@@ -21,13 +21,13 @@ let payload = {
     'accessToken': token.access_token
   };
 ```
-3.  Create signature using encryption and encoding
+3.  Create signature 
 
 ```
 jwt.sign(payload,secret,options,callback);
 ```
 
-4. 5. register the authentication strategy
+4. 5. register the authentication strategy in serrver.js
 
 ```
 server.auth.strategy('jwt', 'jwt',
@@ -37,13 +37,12 @@ server.auth.strategy('jwt', 'jwt',
   });
 ```
 
-5. verify your json
+5. Validate function
+Note: the token is automatically decoded!!
 
 ```
 function(token, request,callback){
-  console.log('Calling the validate function');
-  console.log(token.id);
-  //here the token is decoded!!!!!!!
+  console.log(token.id); //deccoded token
   if (!people[token.id]) {
      return callback(null, false);
    }

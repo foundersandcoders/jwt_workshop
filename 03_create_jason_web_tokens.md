@@ -5,7 +5,7 @@
 A JSON web token consists of three strings separated by dots.
 ![JWT structure](./imgs/jwt_structure.png)
 
-##### 1) Create header (algorithm and token type) using encoding
+### 1) Create header (algorithm and token type) using encoding
 - an encoded representation of a simple JavaScript oject
 - tells how the JWT signature should be computed.
 
@@ -23,7 +23,7 @@ Example (JSON object - remove comments before using)
 
 If you then `base64UrlEncode` (this is not a built-in JavaScript function) the header json object, you get the string `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9` for the first part of the JWT.
 
-##### 2) Create payload (bulk of information) using encoding
+### 2) Create payload (bulk of information) using encoding
 
 - encoded
 - the length of the payload is proportional to the amount of data you store in the token
@@ -47,7 +47,7 @@ It can contain reserved, public and private claims (i.e. statements about differ
 
 If you then `base64UrlEncode` (this is not a built-in JavaScript function) the payload json object, you get the string `eyJpc3MiOiJzY290Y2guaW8iLCJleHAiOjEzMDA4MTkzODAsIm5hbWUiOiJDaHJpcyBTZXZpbGxlamEiLCJhZG1pbiI6dHJ1ZX0` for the second part of the JWT.
 
-##### 3) Create signature using encryption and encoding
+### 3) Create signature using encryption and encoding
 - it is created based on the header and payload
 - it is encoded and signed
 You take the encoded header, the encoded payload and using the algorithm specified in the header, you generate a secret, encode all components and sign the JWT.
