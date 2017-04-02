@@ -16,7 +16,7 @@ avoidin to query the database more than once.
 - **Authentication**: the most common use of JWTs. After logging in, each subsequent request will contain the JWT,
 allowing the user to access the routes and services that are alowed with that token.
 
-- *Information exchange*: JWTs can be used to securely transmit information between parties, since they can be signed e.g.: using public/private key pairs. The signature is determined based on both the header and the payload using a hashing algorithm, so you can check that the content hasn't been tampered with.
+- **Information exchange**: JWTs can be used to securely transmit information between parties, since they can be signed e.g.: using public/private key pairs. The signature is determined based on both the header and the payload using a hashing algorithm, so you can check that the content hasn't been tampered with.
 
 ## How do JWTs work?
 ![JWTs explained](./imgs/jwts_explained.png)
@@ -25,20 +25,6 @@ It should be noted that a double quoted string is actually considered a valid JS
 
 A JSON web token consists of three strings separated by dots.
 ![JWT structure](./imgs/jwt_structure.png)
-
-## Big world alert: encoding vs encryption
-
-- **Encoding**: is **data transformation** and the goal is not to keep the data secret but to **ensure the data has the right format** for proper consumption.
-
-  ```
-  querystring.stringify({"url": "http://domain.com"});
-// outputs 'url=http%3A%2F%2Fdomain.com'
-  ```
-
-- **Encryption**:  is **data transformation** where the goal is to **ensure that data cannot be consumed by any other user except for the intended recipients**.
-
-Example:
-A hashing algorithm or in practice, the bcrypt Node module to encrypt user passwords.
 
 ### 1. Header
 - an encoded representation of a simple JavaScript oject
