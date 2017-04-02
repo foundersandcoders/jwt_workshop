@@ -38,6 +38,6 @@ A JSON web token consists of three strings separated by dots.
 - it is encoded and encrypted
 
 ## Resources
-[medium article on understandinf JWTs](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec#.z80hda8ty)
-[]()
-[]()
+- [medium article on understandinf JWTs](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec#.z80hda8ty)  
+- [JWT signing algorithms overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/)  
+- [HWT the right way](https://stormpath.com/blog/jwt-the-right-way)  
