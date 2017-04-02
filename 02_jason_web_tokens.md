@@ -8,7 +8,7 @@
 
 - JWT are used across several programming languages .NET, Python, Node.js, Java, PHP, Ruby, Go, JavaScript, and Haskell.
 - **JWTs are self-contained** which means that the payload contains all the necessary information about the user,
-avoidin to query the database more than once.
+avoiding to query the database more than once.
 - JWTs are versatile and can be passed around easily. They are small, so they can be sent through **URL**, **POST parameters** or inside an **HTTP header**.
 
 ## When should you use JSON web tokens?
@@ -30,12 +30,12 @@ A JSON web token consists of three strings separated by dots.
 - an encoded representation of a simple JavaScript oject
 
 ### 2. Payload
-- encoded???
+- encoded?
 - the length of the payload is proportional to the amount of data you store in the token
 
 ### 3. Signature
-- it is created based on the heather and payload
-- it is encoded and encrypted
+- it is created based on the header and payload
+- it is encoded and signed
 
 ## Resources
 - [medium article on understandinf JWTs](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec#.z80hda8ty)  
