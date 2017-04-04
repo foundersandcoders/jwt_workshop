@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/denesnori/fac10_jwt_workshop/issues"
   },
-  "homepage": "https://github.com/denesnori/fac10_jwt_workshop#readme"
+  "homepage": "https://github.com/denesnori/fac10_jwt_workshop#readme",
+  "dependencies": {
+    "env2": "^2.1.1",
+    "hapi": "^16.1.1",
+    "hapi-auth-jwt2": "^7.2.4",
+    "inert": "^4.2.0",
+    "jsonwebtoken": "^7.3.0",
+    "querystring": "^0.2.0",
+    "request": "^2.81.0"
+  }
 }
