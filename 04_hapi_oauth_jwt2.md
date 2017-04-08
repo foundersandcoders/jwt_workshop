@@ -1,12 +1,12 @@
-## Create a JSON web token in
+## JWT workshop
 
 
-The hands o part of this workshop builds on the [oAuth workshop](https://foundersandcoders.gitbooks.io/fac9/content/week8/workshop.html) on Monday.  
+The hands on part of this workshop builds on the [oAuth workshop](https://foundersandcoders.gitbooks.io/fac9/content/week8/workshop.html) on Monday.  
 
 
-The workshop uses the ```hapi-auth-jwt2``` and the ```jsonwebtoken``` npm packages. These packages handle many things under the hood. Encoding and signing the different parts of the token will be hidden form our eyes.
+The workshop uses the ```hapi-auth-jwt2``` and the ```jsonwebtoken``` npm packages. These packages handle many things under the hood. E.g.: Encoding and signing the different parts of the json web token is hidden form our eyes.
 
-## Step 1
+### Step 1
 
  In Step 4 (Monday's) workshop we send a POST request to the github API, and the response's body
 contains the access token. This is the starting point of this workshop.
@@ -21,13 +21,18 @@ The next step is that we send a GET request to the github API, in order to get t
 Hints:
 - use the request npm module
 - request url: `https://api.github.com/user`;
-- ```
+- header:  
+ ```
   let header = {
             'User-Agent': 'oauth_github_jwt',
             Authorization: `token ${token.access_token}`
           };
 ```
-## Step 2  Build the JSON Web Token!
+- get request:  
+```
+  Request.get({url:url, headers:header}, function (error, response, body) {...}
+  ```
+### Step 2  Build the JSON Web Token!
 
 Install the npm packages we use.
 
@@ -35,8 +40,8 @@ Install the npm packages we use.
 npm install --save jsonwebtoken
 ```
 
-- secret: it can be  whater you want, save it as an environment variable.
-- options object:
+- secret: used for signing the token, it can be  whater you want, save it as an environment variable.
+- options object: include the expiration data and the subject.
 ```
 let options = {
         'expiresIn': Date.now() + 24 * 60 * 60 * 1000,
@@ -79,6 +84,15 @@ reply
 });
 ```
 
+Configure the auth strategy for the new route:
+```
+const secure={
+  method: 'GET',
+  path: '/secure',
+  config: {auth: 'jwt'},
+  handler: secureHandler,
+}
+```
 
 ## Step 3 register the authentication strategy in server.js
 
@@ -101,7 +115,7 @@ Note: the token is automatically decoded!!
 - build a dummy users object,(normally you would have a users database, and you would query the database)
 
 ```
-var people = { // our "users database"
+var people = { // our "users database", use your github details here
     1: {
       id: 1,
       name: 'Jen Jones'
