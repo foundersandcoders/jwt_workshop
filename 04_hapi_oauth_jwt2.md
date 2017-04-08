@@ -4,7 +4,11 @@
 The hands o part of this workshop builds on the [oAuth workshop](https://foundersandcoders.gitbooks.io/fac9/content/week8/workshop.html) on Monday.  
 
 
-1. In Step 4 (Monday's) workshop we send a POST request to the github API, and the response's body
+The workshop uses the ```hapi-auth-jwt2``` and the ```jsonwebtoken``` npm packages. These packages handle many things under the hood. Encoding and signing the different parts of the token will be hidden form our eyes.
+
+## Step 1
+
+ In Step 4 (Monday's) workshop we send a POST request to the github API, and the response's body
 contains the access token. This is the starting point of this workshop.
 
 ![JWT flow](./imgs/jwt-flow.png)
@@ -23,8 +27,7 @@ Hints:
             Authorization: `token ${token.access_token}`
           };
 ```
-
-2.  Build the JSON Web Token!
+## Step 2  Build the JSON Web Token!
 
 Install the npm packages we use.
 
@@ -40,7 +43,7 @@ let options = {
         'subject': 'github-data'
       }
 ```
-- Create payload (bulk of information) using encoding
+- Create payload
 It should contain the user details (from the get request to the github API) and the access token.
 
 ```
@@ -77,7 +80,7 @@ reply
 ```
 
 
-3. register the authentication strategy in server.js
+## Step 3 register the authentication strategy in server.js
 
 
 ```
@@ -92,8 +95,19 @@ server.auth.strategy('jwt', 'jwt',
   });
 ```
 
-5. Validate function
+## STEP 4  Validate function
 Note: the token is automatically decoded!!
+
+- build a dummy users object,(normally you would have a users database, and you would query the database)
+
+```
+var people = { // our "users database"
+    1: {
+      id: 1,
+      name: 'Jen Jones'
+    }
+};
+```
 
 ```
 function(token, request,callback){
