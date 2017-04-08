@@ -7,6 +7,8 @@ The hands o part of this workshop builds on the [oAuth workshop](https://founder
 1. In Step 4 (Monday's) workshop we send a POST request to the github API, and the response's body
 contains the access token. This is the starting point of this workshop.
 
+![JWT flow](./imgs/jwt-flow.png)
+
 If we want to authenticate or user with github, get their details (e.g.: name, avatar, user id).
 In a real life scenario, we might want to save their details to a database (it is not part of this workshop).
 
@@ -24,37 +26,22 @@ Hints:
 
 2.  Build the JSON Web Token!
 
-- secret: it can be  whater you want, save it in config.env.
-- options object: I would suggest to set an expiresIn and a subject property
-- payload, user , accesToken
-
-
-Parse the response, and save the username, user id and avatar url
 Install the npm packages we use.
 
 ```
 npm install --save jsonwebtoken
 ```
 
-```
-npm install --save hapi-auth-jwt2
-```
-
-
-
-
-
-------------------------------------------------------
-1. Create header (algorithm and token type) using encoding
-
+- secret: it can be  whater you want, save it as an environment variable.
+- options object:
 ```
 let options = {
         'expiresIn': Date.now() + 24 * 60 * 60 * 1000,
         'subject': 'github-data'
       }
 ```
-
-2. Create payload (bulk of information) using encoding
+- Create payload (bulk of information) using encoding
+It should contain the user details (from the get request to the github API) and the access token.
 
 ```
 let payload = {
@@ -66,13 +53,19 @@ let payload = {
     'accessToken': token.access_token
   };
 ```
-3.  Create signature
+
+  -  Create signature
 
 ```
 jwt.sign(payload,secret,options,callback);
 ```
 
-4. 5. register the authentication strategy in server.js
+3. register the authentication strategy in server.js
+
+
+```
+npm install --save hapi-auth-jwt2
+```
 
 ```
 server.auth.strategy('jwt', 'jwt',
@@ -96,3 +89,7 @@ function(token, request,callback){
    }
 };
 ```
+
+Resources:
+- [hapi-auth-jwt2](https://github.com/dwyl/hapi-auth-jwt2)
+- [hapi-auth-jwt2](https://www.npmjs.com/package/hapi-auth-jwt2)

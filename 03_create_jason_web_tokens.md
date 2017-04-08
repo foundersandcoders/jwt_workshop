@@ -63,3 +63,7 @@ The snippet above generates the third part of the JWT, which is the signature he
 
 Combining all three parts above, the JWT looks like this:
 `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzY290Y2guaW8iLCJleHAiOjEzMDA4MTkzODAsIm5hbWUiOiJDaHJpcyBTZXZpbGxlamEiLCJhZG1pbiI6dHJ1ZX0.03f329983b86f7d9a9f5fef85305880101d5e302afafa20154d094b229f75773
+
+Resources:
+- [JWT decoder](https://jwt.io/)
+- [JWTs](https://jwt.io/introduction/)
