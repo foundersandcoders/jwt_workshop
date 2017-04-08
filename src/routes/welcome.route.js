@@ -43,7 +43,7 @@ const welcomeHandler = (req,rep) => {
       //  console.log(token);
       //  console.log('decoded token',jwt.verify(token, process.env.SECRET));
       rep
-        .redirect('/secure') //make a new route for it
+        .redirect('/secure') //make a new route for the redirect, config it with an authentication strategy
         .state('token', token,
           {
           path: '/',

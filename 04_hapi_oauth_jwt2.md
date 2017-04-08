@@ -56,9 +56,26 @@ let payload = {
 
   -  Create signature
 
+General:
 ```
 jwt.sign(payload,secret,options,callback);
 ```
+
+For us now:
+```
+jwt.sign(payload,secret,options, (err,token) => {
+//  console.log(token);
+//  console.log('decoded token',jwt.verify(token, process.env.SECRET)); // check that you can decode it
+reply
+ .redirect('/secure') //make a new route for the redirect, config it with an authentication strategy
+ .state('token', token,
+   {
+   path: '/',  // the token is valid for every path starting with /
+   isHttpOnly: false,
+   isSecure: process.env.NODE_ENV === 'PRODUCTION' });
+});
+```
+
 
 3. register the authentication strategy in server.js
 
