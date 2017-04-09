@@ -138,3 +138,6 @@ function(token, request,callback){
 Resources:
 - [hapi-auth-jwt2](https://github.com/dwyl/hapi-auth-jwt2)
 - [hapi-auth-jwt2](https://www.npmjs.com/package/hapi-auth-jwt2)
+
+
+[Step 5 - Checking the authentication of routes](./Step5.md)

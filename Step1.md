@@ -89,3 +89,5 @@ Resources:
 - [Encoding vs Encryption](http://stackoverflow.com/questions/4657416/difference-between-encoding-and-encryption)
 - [Symmetric vs Asymmetric encryption](https://www.ssl2buy.com/wiki/symmetric-vs-asymmetric-encryption-what-are-differences)
 - [hash generator](http://www.freeformatter.com/hmac-generator.html)
+
+[Step 2 - What are JSON web token and why we use them](./Step2.md)

@@ -31,3 +31,5 @@ The authentication flow:
 - [medium article on understanding JWTs](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec#.z80hda8ty)  
 - [JWT signing algorithms overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/)  
 - [HWT the right way](https://stormpath.com/blog/jwt-the-right-way)  
+
+[Step 3 - The structure of JSON web tokens](./Step3.md)

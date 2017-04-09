@@ -67,3 +67,5 @@ Combining all three parts above, the JWT looks like this:
 Resources:
 - [JWT decoder](https://jwt.io/)
 - [JWTs](https://jwt.io/introduction/)
+
+[Step 4 - JWT and hapi-auth-jwt2 example](./Step4.md)
