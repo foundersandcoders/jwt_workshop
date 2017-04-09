@@ -1,7 +1,7 @@
 ## JWT workshop
 
 
-The hands on part of this workshop builds on the [oAuth workshop](https://foundersandcoders.gitbooks.io/fac9/content/week8/workshop.html) on Monday.  
+The hands on part of this workshop builds on the [oAuth workshop](https://github.com/foundersandcoders/oauth) on Monday.  
 
 
 The workshop uses the ```hapi-auth-jwt2``` and the ```jsonwebtoken``` npm packages. These packages handle many things under the hood. E.g.: Encoding and signing the different parts of the json web token is hidden form our eyes.
