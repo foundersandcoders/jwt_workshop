@@ -69,6 +69,12 @@ General:
 jwt.sign(payload,secret,options,callback);
 ```
 
+This function build the JSON web token. Please bear in mind that JWTs don't encrypt. They are encoded and signed. If the aim is not to expose the token to the user, a JWT in itself won't protect it.
+
+- the simplest approach is to set the JST in a cookie, it is an acceptable approach, in this way the client won1t be able to read it. (This is what we do in this workshop.)
+- store the cookie on the server
+- encrypt the cookie.
+
 For us now:
 ```
 jwt.sign(payload,secret,options, (err,token) => {

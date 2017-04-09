@@ -85,7 +85,9 @@ let payload = {
 
 ![JWT flow](../imgs/jwt-flow.png)
 
-#### Question 3. Where can you store JWTs? Discuss the advantages and disadvantages of these options?
+### JWT and hapi-auth-jwt2 example
+
+#### Question 1. Where can you store JWTs? Discuss the advantages and disadvantages of these options?
 
   - store it in a cookie (adv: client can't read it, disadv: the access stoken is still not protected)
   - store it on the server, save it into a database (adv: hidden from the user disadv: requires more work to implement it )
