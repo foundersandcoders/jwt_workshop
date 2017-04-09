@@ -36,6 +36,7 @@ Lookup tables are only effective because each password is hahed the same way. If
 ### What are JSON web token and why we use them
 
 #### Question 1. When and why we use JWTs?
+  - safe way to represent and transmit a set of inromation between two parties
   - self-contained: payload has all the necessary information eg.:
   ```
   let payload = {
@@ -51,6 +52,7 @@ Lookup tables are only effective because each password is hahed the same way. If
       - http headers
       - post parameters
       - query parameters in urls
+  - most common use is for authentication
 
 
 #### Question 2. Draw the JWT flow on the whiteboard and explain it
