@@ -29,7 +29,15 @@ Don't encrypt passwords. Though secure when encrypted, the **passwords can be de
 
 Instead we should 'hash' passwords. Hashing is similar to encryption except that it is a one-way process and does not require a secret key. Each time we give a hash function the same input we get the same output. But we can't use the output to calculate the input. For example: 15 % 10 will always be 5. But if we have n % 10 = 5 we can't work out what n is, because there are infinite possibilities (5, 15, 25...).
 
-## 4. Salt factors
+## 4. Hacker attacks
+
+- dictionary attack: uses a list of  words, phrases and expressions commonly used as passwords. Each word in the list is hashed, and compared to the hashed password. If they match, the hacker found the password.
+
+- brute force attack: tries every possible combination of characters up to a certain length. It is computationally expensive (takes a long time), but theycan always find the password. If the passwords arelong enough, it is too computationally expensive to compute them.
+
+- lookup tables: precompute the hashes of possible passwords and store the password-hashed password pairs in a lookup table data structure. If the impementation is good enough, hundreds of hashes can be checked per second.
+
+## 5. Salt factors
 
 Because a hash function will always give the same output for the same input an attacker with access to a database of hashed passwords could try hashing lots of possible passwords and seeing if the hashed output matches any of the hashed passwords. Precomputed lists of hashes (called 'hash tables') exist so an attacker doesn't even need to do the computation themselves.
 
