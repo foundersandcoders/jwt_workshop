@@ -50,12 +50,12 @@ The effect of salting is to greatly increase the attacker's computation requirem
 Another defensive technique is to add a 'work factor' to the hashing to make the computation harder and so slower. The aim is to make the computation seem quick to the user but slow enough (e.g. 0.5s) that trying to compute billions of possible passwords becomes unfeasibly slow even with very fast computers.
 
 
-- Case 1: To verify a hashed password without salt, you compute ```HS256(password)```, and compare
+**Case 1:** To verify a hashed password without salt, you compute ```HS256(password)```, and compare
 it with the data stored on the database.
 
 If you have access to a hash table, it is easy to decode the passwords.
 
-if 3 of your users have ```123456``` as its password, and you use ```HS256``` algorithm without a salt to save the password, you database would look like this:
+if 3 of your users have ```123456``` as its password, and you use ```HS256``` algorithm without a salt to save the password, you database would look like this:  
 
 |username    | password                         |
 | ---------- |:--------------------------------:|
@@ -65,24 +65,25 @@ if 3 of your users have ```123456``` as its password, and you use ```HS256``` al
 
 As soon as a hacker finds one password in a hash table, he knows all the other.
 
-- Case 2: all three users have the same password, but you compute ```HS256(password+salt)``` to save the data
+**Case 2:** all three users have the same password, but you compute ```HS256(password+salt)``` to save the data
 into your database. The SALT factor is always 11.
 
-|username    | salt | password                         |
-| ---------- |:----:|: -------------------------------:|
-|user1       | 11   | f47bbcf0fa016dcc0d5a0c5b8c22e44e3ef7b59327708d9dee37905b5a95cde0|  
-|user7       | 11   | f47bbcf0fa016dcc0d5a0c5b8c22e44e3ef7b59327708d9dee37905b5a95cde0 |  
-|user13      | 11   | f47bbcf0fa016dcc0d5a0c5b8c22e44e3ef7b59327708d9dee37905b5a95cde0 |
+
+|username    | salt | password                                                         |   
+| ---------- |:----:|: ---------------------------------------------------------------:|   
+|user1       | 11   | f47bbcf0fa016dcc0d5a0c5b8c22e44e3ef7b59327708d9dee37905b5a95cde0 |   
+|user7       | 11   | f47bbcf0fa016dcc0d5a0c5b8c22e44e3ef7b59327708d9dee37905b5a95cde0 |   
+|user13      | 11   | f47bbcf0fa016dcc0d5a0c5b8c22e44e3ef7b59327708d9dee37905b5a95cde0 |   
 
 Following this approach, the hacker will have to bruteforce the hashes to get the passwords. It will slow him down, but as soon as one password is cracked, he knows the others too.
 
-- Case 3: all the users have the same password, but we compute ```HS256(password+random salt)```
+**Case 3:** all the users have the same password, but we compute ```HS256(password+random salt)```  
 
-|username    | salt | password                         |
-| ---------- |:----:|: -------------------------------:|
-|user1       |  11  | f47bbcf0fa016dcc0d5a0c5b8c22e44e3ef7b59327708d9dee37905b5a95cde0 |
-|user7       |  99  | a2d54cc60a4b8c5c5f14f5bcd8fb8b4f38d8a47e9c0ed4240aa949ce3677cd0d |
-|user13      |  22  | dbea1b528e1306ab5d00a6913b091ae0d9fa5a4aa361868ebb20f8a55f957051 |
+| username   | salt | password                                                         |   
+| ---------- |:----:|: ---------------------------------------------------------------:|   
+|user1       |  11  | f47bbcf0fa016dcc0d5a0c5b8c22e44e3ef7b59327708d9dee37905b5a95cde0 |    
+|user7       |  99  | a2d54cc60a4b8c5c5f14f5bcd8fb8b4f38d8a47e9c0ed4240aa949ce3677cd0d |     
+|user13      |  22  | dbea1b528e1306ab5d00a6913b091ae0d9fa5a4aa361868ebb20f8a55f957051 |    
 
 >In this case, even if all your users have the same password, the hacker cannot know without bruteforce every password. In this example the salt is very short, just 4 bytes, but you can use larger salts (128 bytes or more) and increase the difficulty to bruteforce the passwords
 
