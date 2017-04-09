@@ -85,7 +85,7 @@ Following this approach, the hacker will have to bruteforce the hashes to get th
 |user7       |  99  | a2d54cc60a4b8c5c5f14f5bcd8fb8b4f38d8a47e9c0ed4240aa949ce3677cd0d |
 |user13      |  22  | dbea1b528e1306ab5d00a6913b091ae0d9fa5a4aa361868ebb20f8a55f957051 |
 
->In this case, even if all your users have the same password, the hacker cannot know without bruteforce every password. In this example the salt is very short, just 4 bytes, but you can use larger salts (128 bytes or more) and increase the difficulty to bruteforce the passwords
+Even if all your users have the same password, the hacker cannot know without bruteforce every password. 
 
 
 Resources:  
