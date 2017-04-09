@@ -11,8 +11,6 @@ The workshop uses the ```hapi-auth-jwt2``` and the ```jsonwebtoken``` npm packag
  In Step 4 (Monday's) workshop we send a POST request to the github API, and the response's body
 contains the access token. This is the starting point of this workshop.
 
-![JWT flow](./imgs/jwt-flow.png)
-
 If we want to authenticate or user with github, get their details (e.g.: name, avatar, user id).
 In a real life scenario, we might want to save their details to a database (it is not part of this workshop).
 

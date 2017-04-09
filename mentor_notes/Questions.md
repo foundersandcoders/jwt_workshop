@@ -83,8 +83,6 @@ let payload = {
 ```
 - make the JWT
 
-![JWT flow](../imgs/jwt-flow.png)
-
 ### JWT and hapi-auth-jwt2 example
 
 #### Question 1. Where can you store JWTs? Discuss the advantages and disadvantages of these options?
