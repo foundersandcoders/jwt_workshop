@@ -81,7 +81,6 @@ jwt.sign(payload, secret, options, (err, token) => {
   //  console.log('decoded token',jwt.verify(token, process.env.SECRET)); // check that you can decode it
   let config = {
     path: '/',  // the token is valid for every path starting with /
-    isHttpOnly: false,
     isSecure: process.env.NODE_ENV === 'PRODUCTION'
   }
 
