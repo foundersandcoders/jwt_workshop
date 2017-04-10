@@ -33,7 +33,7 @@ Lookup tables are only effective because each password is hahed the same way. If
 
   - The salt doesn't need to be a secret!! Just by using randomized hashes lookup tables will become ineffective.
 
-### What are JSON web token and why we use them
+### What are JSON Web Token and why we use them
 
 #### Question 1. When and why we use JWTs?
   - safe way to represent and transmit a set of inromation between two parties
@@ -59,7 +59,7 @@ Lookup tables are only effective because each password is hahed the same way. If
 
 ![JSON Web Token flow](../imgs/jwts_explained.png)
 
-### The structure of JSON web tokens
+### The structure of JSON Web Tokens
 
 #### Question 1. Name the three parts of a JWT? Which parts are encoded,signed, or encrypted?
   - header -- encoded

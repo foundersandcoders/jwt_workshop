@@ -2,7 +2,7 @@
 
 ## JWTs under the hood
 
-A JSON web token consists of three strings separated by dots.
+A JSON Web Token consists of three strings separated by dots.
 ![JWT structure](./imgs/jwt_structure.png)
 
 ### 1) Create header (algorithm and token type) using encoding

@@ -1,6 +1,6 @@
-## What is a JSON web token(JWT)?
+## What is a JSON Web Token(JWT)?
 
-> A JSON web token (JWT) is a JSON object, which is a safe way to represent and transmit a set of inromation between two parties. The token is composed of a header, a payload and a signature.
+> A JSON Web Token (JWT) is a JSON object, which is a safe way to represent and transmit a set of inromation between two parties. The token is composed of a header, a payload and a signature.
 
 *(Please note that a double quoted string is  considered a valid JSON object.)*
 
@@ -8,7 +8,7 @@
 - **JWTs are self-contained** which means that the payload contains all the necessary information about the user, avoiding the need to query the database more than once.
 - JWTs are versatile and can be passed around easily. They are small, so they can be sent through **URL**, **POST parameters** or inside an **HTTP header**.
 
-## When should you use JSON web tokens?
+## When should you use JSON Web Tokens?
 
 - **Authentication**: the most common use of JWTs. After logging in, each subsequent request will contain the JWT, allowing the user to access the routes and services that are alowed with that token.
 
@@ -32,4 +32,4 @@ The authentication flow:
 - [JWT signing algorithms overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/)  
 - [HWT the right way](https://stormpath.com/blog/jwt-the-right-way)  
 
-[Step 3 - The structure of JSON web tokens](./Step3.md)
+[Step 3 - The structure of JSON Web Tokens](./Step3.md)

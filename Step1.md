@@ -1,6 +1,6 @@
 # Big world alert: encoding vs encryption vs hashing
 
-To understand how JSON web tokens are built, it is important to understand the difference between encryption,
+To understand how JSON Web Tokens are built, it is important to understand the difference between encryption,
 encoding, and hashing.
 
 ## 1. Encoding
@@ -100,4 +100,4 @@ Resources:
 - [Symmetric vs Asymmetric encryption](https://www.ssl2buy.com/wiki/symmetric-vs-asymmetric-encryption-what-are-differences)
 - [hash generator](http://www.freeformatter.com/hmac-generator.html)
 
-[Step 2 - What are JSON web token and why we use them](./Step2.md)
+[Step 2 - What are JSON Web Token and why we use them](./Step2.md)

@@ -1,7 +1,7 @@
 {
   "name": "fac10_jwt_workshop",
   "version": "1.0.0",
-  "description": "## What is a JSON web token(JWT)?",
+  "description": "## What is a JSON Web Token(JWT)?",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

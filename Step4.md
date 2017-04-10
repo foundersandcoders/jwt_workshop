@@ -4,7 +4,7 @@
 The hands on part of this workshop builds on the [OAuth workshop](https://github.com/foundersandcoders/oauth-workshop) from yesterday.  
 
 
-The workshop uses the ```hapi-auth-jwt2``` and the ```jsonwebtoken``` npm packages. These packages handle many things under the hood. E.g. Encoding and signing the different parts of the json web token is hidden form us.
+The workshop uses the ```hapi-auth-jwt2``` and the ```jsonwebtoken``` npm packages. These packages handle many things under the hood. E.g. Encoding and signing the different parts of the JSON Web Token is hidden form us.
 
 ### Step 1 - Query the github API
 
@@ -68,7 +68,7 @@ General:
 jwt.sign(payload,secret,options,callback);
 ```
 
-This function build the JSON web token. Please bare in mind that JWTs are not encrypted. They are encoded and signed. If the aim is not to expose the token to the user, a JWT in itself won't protect it.
+This function build the JSON Web Token. Please bare in mind that JWTs are not encrypted. They are encoded and signed. If the aim is not to expose the token to the user, a JWT in itself won't protect it.
 
 - the simplest approach is to set the JWT in a cookie, it is an acceptable approach, in this way the client won't be able to read it. (This is what we do in this workshop.)
 - store the cookie on the server
