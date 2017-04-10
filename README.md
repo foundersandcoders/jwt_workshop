@@ -3,7 +3,7 @@
 This workshop builds on the [oauth workshop](https://github.com/foundersandcoders/oauth).
 
 The first readmes explain the concepts, and the later ones walk you through how to stora the
-github access token in a json web token.
+github access token in a JSON web token.
 
 Pair up and swap driver/navigator at each step during the hands on part of this workshop.
 
