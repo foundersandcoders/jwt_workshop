@@ -26,10 +26,9 @@ The authentication flow:
 - if the user makes an API call to the authentication server, the JWT is sent along with the API call (in the header or in a cookie).
 - the application server is able to verify that the JWT was issued by the authentication server, hence the API call is from an authenticated user.
 
+[Step 3 - The structure of JSON Web Tokens](./Step3.md)
 
 ## Resources
 - [medium article on understanding JWTs](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec#.z80hda8ty)  
 - [JWT signing algorithms overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/)  
 - [HWT the right way](https://stormpath.com/blog/jwt-the-right-way)  
-
-[Step 3 - The structure of JSON Web Tokens](./Step3.md)

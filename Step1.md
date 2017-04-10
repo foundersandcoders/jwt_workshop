@@ -88,6 +88,7 @@ Following this approach, the hacker will have to brute force the hashes to get t
 
 Even if all your users have the same password, the hacker cannot know without brute forcing every password.
 
+[Step 2 - What are JSON Web Token and why we use them](./Step2.md)
 
 Resources:  
 - [Why should i hash passwords?](https://security.stackexchange.com/questions/36833/why-should-i-hash-passwords)  
@@ -99,5 +100,3 @@ Resources:
 - [Encoding vs Encryption](http://stackoverflow.com/questions/4657416/difference-between-encoding-and-encryption)
 - [Symmetric vs Asymmetric encryption](https://www.ssl2buy.com/wiki/symmetric-vs-asymmetric-encryption-what-are-differences)
 - [hash generator](http://www.freeformatter.com/hmac-generator.html)
-
-[Step 2 - What are JSON Web Token and why we use them](./Step2.md)

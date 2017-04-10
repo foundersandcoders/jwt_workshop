@@ -62,10 +62,10 @@ You take the encoded header and the encoded payload. Using these and the algorit
 The snippet above generates the third part of the JWT, which is the signature held by the server that is used to verify existing tokens and sign new ones: `03f329983b86f7d9a9f5fef85305880101d5e302afafa20154d094b229f75773`
 
 Combining all three parts above, the JWT looks like this:
-`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzY290Y2guaW8iLCJleHAiOjEzMDA4MTkzODAsIm5hbWUiOiJDaHJpcyBTZXZpbGxlamEiLCJhZG1pbiI6dHJ1ZX0.03f329983b86f7d9a9f5fef85305880101d5e302afafa20154d094b229f75773
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzY290Y2guaW8iLCJleHAiOjEzMDA4MTkzODAsIm5hbWUiOiJDaHJpcyBTZXZpbGxlamEiLCJhZG1pbiI6dHJ1ZX0.03f329983b86f7d9a9f5fef85305880101d5e302afafa20154d094b229f75773`
+
+[Step 4 - JWT and hapi-auth-jwt2 example](./Step4.md)
 
 Resources:
 - [JWT decoder](https://jwt.io/)
 - [JWTs](https://jwt.io/introduction/)
-
-[Step 4 - JWT and hapi-auth-jwt2 example](./Step4.md)
