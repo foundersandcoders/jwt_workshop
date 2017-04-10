@@ -19,16 +19,16 @@ Hints:
 - use the request npm module
 - request url: `https://api.github.com/user`;
 - header:  
- ```javascript
-  let header = {
-            'User-Agent': 'oauth_github_jwt',
-            Authorization: `token ${token.access_token}`
-          };
+```javascript
+let header = {
+  'User-Agent': 'oauth_github_jwt',
+  Authorization: `token ${token.access_token}`
+};
 ```
 - get request:  
 ```javascript
-  Request.get({url:url, headers:header}, function (error, response, body) {...})
-  ```
+Request.get({url:url, headers:header}, function (error, response, body) {...})
+```
 ### Step 2 - Build the JSON Web Token!
 
 Install the npm packages we use.
@@ -39,27 +39,29 @@ npm install --save jsonwebtoken
 
 - secret: used for signing the token, it can be  whater you want, save it as an environment variable.
 - options object: include the expiration date and the subject.
+
 ```javascript
 let options = {
-        'expiresIn': Date.now() + 24 * 60 * 60 * 1000,
-        'subject': 'github-data'
-      }
+  'expiresIn': Date.now() + 24 * 60 * 60 * 1000,
+  'subject': 'github-data'
+}
 ```
+
 - Create payload
 It should contain the user details (from the get request to the github API) and the access token.
 
 ```javascript
 let payload = {
-    'user': {
-        'username': body.login,
-        'img_url': body.avatar_url,
-        'user_id': body.id
-      },
-    'accessToken': token.access_token
-  };
+  'user': {
+      'username': body.login,
+      'img_url': body.avatar_url,
+      'user_id': body.id
+    },
+  'accessToken': token.access_token
+};
 ```
 
-  -  Create signature
+- Create signature
 
 General:
 ```javascript
@@ -74,22 +76,24 @@ This function build the JSON web token. Please bare in mind that JWTs are not en
 
 For us now:
 ```javascript
-jwt.sign(payload,secret,options, (err,token) => {
-//  console.log(token);
-//  console.log('decoded token',jwt.verify(token, process.env.SECRET)); // check that you can decode it
-reply
- .redirect('/secure') //make a new route for the redirect, config it with an authentication strategy
- .state('token', token,
-   {
-   path: '/',  // the token is valid for every path starting with /
-   isHttpOnly: false,
-   isSecure: process.env.NODE_ENV === 'PRODUCTION' });
+jwt.sign(payload, secret, options, (err, token) => {
+  //  console.log(token);
+  //  console.log('decoded token',jwt.verify(token, process.env.SECRET)); // check that you can decode it
+  let config = {
+    path: '/',  // the token is valid for every path starting with /
+    isHttpOnly: false,
+    isSecure: process.env.NODE_ENV === 'PRODUCTION'
+  }
+
+  reply
+   .redirect('/secure') //make a new route for the redirect, config it with an authentication strategy
+   .state('token', token, config);
 });
 ```
 
 Configure the auth strategy for the new route:
 ```javascript
-const secure={
+const secure = {
   method: 'GET',
   path: '/secure',
   config: {auth: 'jwt'},
@@ -105,11 +109,13 @@ npm install --save hapi-auth-jwt2
 ```
 
 ```javascript
-server.auth.strategy('jwt', 'jwt',
-  { key: process.env.SECRET,
-    validateFunc: validate,
-    verifyOptions: { algorithms: [ 'HS256' ] }
-  });
+const strategyOptions = {
+  key: process.env.SECRET,
+  validateFunc: validate,
+  verifyOptions: { algorithms: [ 'HS256' ] }
+}
+
+server.auth.strategy('jwt', 'jwt', strategyOptions);
 ```
 
 ### Step 4 - Validate function
@@ -118,23 +124,23 @@ Note: the token is automatically decoded!!
 - build a dummy users object (normally you would have a users database, and you would query the database)
 
 ```javascript
-var people = { // our "users database", use your github details here
-    1: {
-      id: 1,
-      name: 'Jen Jones'
-    }
+const people = { // our "users database", use your github details here
+  1: {
+    id: 1,
+    name: 'Jen Jones'
+  }
 };
 ```
 
 ```javascript
-function(token, request,callback){
-  console.log(token.id); //deccoded token, it automaitcally decodes it
+function(token, request, callback){
+  console.log(token.id); // decoded token, it automatically decodes it
   if (!people[token.id]) {
-     return callback(null, false);
-   }
-   else {
-     return callback(null, true);
-   }
+    return callback(null, false);
+  }
+  else {
+    return callback(null, true);
+  }
 };
 ```
 
