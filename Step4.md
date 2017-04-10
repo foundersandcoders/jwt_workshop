@@ -19,27 +19,27 @@ Hints:
 - use the request npm module
 - request url: `https://api.github.com/user`;
 - header:  
- ```
+ ```javascript
   let header = {
             'User-Agent': 'oauth_github_jwt',
             Authorization: `token ${token.access_token}`
           };
 ```
 - get request:  
-```
+```javascript
   Request.get({url:url, headers:header}, function (error, response, body) {...})
   ```
 ### Step 2 - Build the JSON Web Token!
 
 Install the npm packages we use.
 
-```
+```shell
 npm install --save jsonwebtoken
 ```
 
 - secret: used for signing the token, it can be  whater you want, save it as an environment variable.
 - options object: include the expiration date and the subject.
-```
+```javascript
 let options = {
         'expiresIn': Date.now() + 24 * 60 * 60 * 1000,
         'subject': 'github-data'
@@ -48,7 +48,7 @@ let options = {
 - Create payload
 It should contain the user details (from the get request to the github API) and the access token.
 
-```
+```javascript
 let payload = {
     'user': {
         'username': body.login,
@@ -62,7 +62,7 @@ let payload = {
   -  Create signature
 
 General:
-```
+```javascript
 jwt.sign(payload,secret,options,callback);
 ```
 
@@ -73,7 +73,7 @@ This function build the JSON web token. Please bare in mind that JWTs are not en
 - encrypt the cookie.
 
 For us now:
-```
+```javascript
 jwt.sign(payload,secret,options, (err,token) => {
 //  console.log(token);
 //  console.log('decoded token',jwt.verify(token, process.env.SECRET)); // check that you can decode it
@@ -88,7 +88,7 @@ reply
 ```
 
 Configure the auth strategy for the new route:
-```
+```javascript
 const secure={
   method: 'GET',
   path: '/secure',
@@ -100,11 +100,11 @@ const secure={
 ### Step 3 - Register the authentication strategy in server.js
 
 
-```
+```shell
 npm install --save hapi-auth-jwt2
 ```
 
-```
+```javascript
 server.auth.strategy('jwt', 'jwt',
   { key: process.env.SECRET,
     validateFunc: validate,
@@ -117,7 +117,7 @@ Note: the token is automatically decoded!!
 
 - build a dummy users object (normally you would have a users database, and you would query the database)
 
-```
+```javascript
 var people = { // our "users database", use your github details here
     1: {
       id: 1,
@@ -126,7 +126,7 @@ var people = { // our "users database", use your github details here
 };
 ```
 
-```
+```javascript
 function(token, request,callback){
   console.log(token.id); //deccoded token, it automaitcally decodes it
   if (!people[token.id]) {
