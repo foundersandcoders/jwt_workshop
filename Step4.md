@@ -1,17 +1,16 @@
 ## JWT workshop
 
 
-The hands on part of this workshop builds on the [oAuth workshop](https://github.com/foundersandcoders/oauth) on Monday.  
+The hands on part of this workshop builds on the [OAuth workshop](https://github.com/foundersandcoders/oauth-workshop) from yesterday.  
 
 
-The workshop uses the ```hapi-auth-jwt2``` and the ```jsonwebtoken``` npm packages. These packages handle many things under the hood. E.g.: Encoding and signing the different parts of the json web token is hidden form our eyes.
+The workshop uses the ```hapi-auth-jwt2``` and the ```jsonwebtoken``` npm packages. These packages handle many things under the hood. E.g. Encoding and signing the different parts of the json web token is hidden form us.
 
-### Step 1
+### Step 1 - Query the github API
 
- In Step 4 (Monday's) workshop we send a POST request to the github API, and the response's body
-contains the access token. This is the starting point of this workshop.
+In [Step 4](https://github.com/foundersandcoders/oauth-workshop/blob/master/step4.md) of Day 1's OAuth workshop, we sent a POST request to the github API, and the body of the response contained the access token. This is the starting point of this workshop.
 
-If we want to authenticate or user with github, get their details (e.g.: name, avatar, user id).
+If we want to authenticate our user with github, we need to get their details (e.g. name, avatar, user id).  
 In a real life scenario, we might want to save their details to a database (it is not part of this workshop).
 
 The next step is that we send a GET request to the github API, in order to get these details (that we later want to save in a JSON Web Token).
@@ -28,9 +27,9 @@ Hints:
 ```
 - get request:  
 ```
-  Request.get({url:url, headers:header}, function (error, response, body) {...}
+  Request.get({url:url, headers:header}, function (error, response, body) {...})
   ```
-### Step 2  Build the JSON Web Token!
+### Step 2 - Build the JSON Web Token!
 
 Install the npm packages we use.
 
@@ -39,7 +38,7 @@ npm install --save jsonwebtoken
 ```
 
 - secret: used for signing the token, it can be  whater you want, save it as an environment variable.
-- options object: include the expiration data and the subject.
+- options object: include the expiration date and the subject.
 ```
 let options = {
         'expiresIn': Date.now() + 24 * 60 * 60 * 1000,
@@ -67,9 +66,9 @@ General:
 jwt.sign(payload,secret,options,callback);
 ```
 
-This function build the JSON web token. Please bear in mind that JWTs don't encrypt. They are encoded and signed. If the aim is not to expose the token to the user, a JWT in itself won't protect it.
+This function build the JSON web token. Please bare in mind that JWTs are not encrypted. They are encoded and signed. If the aim is not to expose the token to the user, a JWT in itself won't protect it.
 
-- the simplest approach is to set the JST in a cookie, it is an acceptable approach, in this way the client won1t be able to read it. (This is what we do in this workshop.)
+- the simplest approach is to set the JWT in a cookie, it is an acceptable approach, in this way the client won't be able to read it. (This is what we do in this workshop.)
 - store the cookie on the server
 - encrypt the cookie.
 
@@ -98,7 +97,7 @@ const secure={
 }
 ```
 
-## Step 3 register the authentication strategy in server.js
+### Step 3 - Register the authentication strategy in server.js
 
 
 ```
@@ -113,10 +112,10 @@ server.auth.strategy('jwt', 'jwt',
   });
 ```
 
-## STEP 4  Validate function
+### Step 4 - Validate function
 Note: the token is automatically decoded!!
 
-- build a dummy users object,(normally you would have a users database, and you would query the database)
+- build a dummy users object (normally you would have a users database, and you would query the database)
 
 ```
 var people = { // our "users database", use your github details here
