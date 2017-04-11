@@ -132,14 +132,12 @@ const people = { // our "users database", use your github details here
 ```
 
 ```javascript
-function(token, request, callback){
+const validate = (token, request,callback) => {
   console.log(token.id); // decoded token, it automatically decodes it
-  if (!people[token.id]) {
-    return callback(null, false);
-  }
-  else {
-    return callback(null, true);
-  }
+  if (!people[token.user.user_id]) {
+     return callback(null, false);
+   }
+   return callback(null, true);
 };
 ```
 [Step 5 - Checking the authentication of routes](./Step5.md)
