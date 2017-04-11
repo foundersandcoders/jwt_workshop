@@ -20,14 +20,14 @@ Hints:
 - request url: `https://api.github.com/user`;
 - header:  
 ```javascript
-let header = {
+const headers = {
   'User-Agent': 'oauth_github_jwt',
-  Authorization: `token ${token.access_token}`
+  Authorization: `token ${body.access_token}`
 };
 ```
 - get request:  
 ```javascript
-Request.get({url:url, headers:header}, function (error, response, body) {...})
+Request.get({url:url, headers:headers}, function (error, response, body) {...})
 ```
 ### Step 2 - Build the JSON Web Token!
 
