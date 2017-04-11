@@ -8,7 +8,7 @@ The workshop uses the ```hapi-auth-jwt2``` and the ```jsonwebtoken``` npm packag
 
 ### Step 1 - Query the github API
 
-In [Step 4](https://github.com/foundersandcoders/oauth-workshop/blob/master/step4.md) of Day 1's OAuth workshop, we sent a POST request to the github API, and the body of the response contained the access token. This is the starting point of this workshop.
+In [Step 5](https://github.com/foundersandcoders/oauth-workshop/blob/master/step5.md) of Day 1's OAuth workshop, we sent a POST request to the github API, and the body of the response contained the access token. This is the starting point of this workshop.
 
 If we want to authenticate our user with github, we need to get their details (e.g. name, avatar, user id).  
 In a real life scenario, we might want to save their details to a database (it is not part of this workshop).
