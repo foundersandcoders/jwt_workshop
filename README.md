@@ -1,3 +1,7 @@
+**Author**: [@denesnori](https://github.com/denesnori)  
+
+**Maintainer**: TBC 
+
 ## JWT workshop
 
 This workshop builds on the [oauth workshop](https://github.com/foundersandcoders/oauth).
